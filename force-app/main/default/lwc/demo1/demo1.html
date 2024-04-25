@@ -1,0 +1,25 @@
+<template>
+    <template if:true={visiblevar}>
+        <lightning-card  title="Hello">
+        <lightning-button label="New" slot="actions"></lightning-button>
+        <p class="slds-p-horizontal_small">Card Body (custom component)</p>
+    </lightning-card>
+    </template>
+    <template if:false={visiblevar}>
+        <lightning-record-view-form
+        record-id="0035e00000330Z9AAI"
+        object-api-name="Contact">
+        <lightning-card  title="Hello1">
+        <lightning-button label="New" slot="actions"></lightning-button>
+        <p class="slds-p-horizontal_small">
+        <lightning-output-field field-name="Name">
+        </lightning-output-field>
+        <lightning-output-field field-name="Phone">
+        </lightning-output-field>
+        </p>
+        <p slot="footer">Card Footer</p>
+        </lightning-card>
+        </lightning-record-view-form>
+        </template>
+    <lightning-button label="button" onclick={handleClick}></lightning-button>
+</template>

@@ -1,0 +1,64 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="liked" default="false" type="Boolean" />
+    <aura:attribute name="disliked" default="false" type="Boolean" />
+    <aura:attribute name="OS" default="" type="string"/>
+    <aura:attribute name="Version" default="" type="string"/>
+    <aura:attribute name="Description" default="" type="string"/>
+    <aura:attribute name="Layout" default="" type="string"/>
+    <aura:attribute name="Manufacturer" default="" type="string"/>
+    <aura:attribute name="Name" default="" type="string"/>
+    <aura:attribute name="Product" default="" type="string"/>
+    <aura:attribute name="Device" default="{!$Browser.formFactor}" type="string"/>
+    
+    <ltng:require scripts="{!$Resource.platform+ '/platform.js-master/platform.js'}" 
+                  afterScriptsLoaded="{!c.afterScriptsLoaded}" />
+    
+    <div style="border-width:1px;border-color:#D4D4D4;border-style: groove;padding:0.5rem;border-radius:0.25rem">
+        <table>
+            <td>
+                <tr>
+                    Nombre : {!Name}
+                </tr>
+                <tr>
+                    Versión: {!v.Version}
+                </tr>
+                <tr>
+                    Layout : {!v.Layout}
+                </tr>
+                <tr>
+                    Sistema Operativo:{!v.OS}
+                </tr>
+                <tr>
+                    Descripción: {!v.Description}
+                </tr>
+                <tr>
+                    Manofactura: {!v.Manufacturer}
+                </tr>
+                <tr>
+                    Producto: {!v.Product}
+                </tr>
+                <tr>
+                    Dispositivo: {!v.Device}
+                </tr>
+            </td>
+        </table>
+        <table>
+            <tr> 
+                <td style="width:81%">
+                    El articulo fue de ayuda?
+                </td>
+                <td style="width:10%">
+                    <center>
+                        <lightning:buttonIconStateful iconName="utility:like" selected="{! v.liked }" onclick="{! c.handleLikeButtonClick }" alternativeText="Like" />
+                    </center>
+                </td>
+                <td style="width:10%">
+                    <center>
+                        <lightning:buttonIconStateful iconName="utility:dislike" selected="{! v.disliked }" onclick="{! c.handleDisLikeButtonClick }" alternativeText="DisLike" />
+                    </center>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+</aura:component>
